@@ -1,4 +1,4 @@
-package com.prestabanco.ms_request;
+package com.prestabanco.msrequest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

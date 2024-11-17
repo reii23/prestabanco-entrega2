@@ -1,0 +1,18 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms-simulation-db
+    username: postgres
+    password: 230902
+  jpa:
+    hibernate:
+      ddl-auto: update
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-server-service:8761/eureka/
