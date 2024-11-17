@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage("Build Frontend") {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/reii23/prestabanco-entrega1']])
+                dir("front/interface") {
+                    bat "npm install"
+                    bat "npm run build"
+                }
+            }
+        }
+        stage("Build and Push Docker Image") {
+            steps {
+                dir("front/interface") {
+                    script {
+                        bat "docker context use default"
+                        withDockerRegistry(credentialsId: 'docker-credentials') {
+                            bat "docker build -t reii23/prestabanco-frontend ."
+                            bat "docker push reii23/prestabanco-frontend"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
