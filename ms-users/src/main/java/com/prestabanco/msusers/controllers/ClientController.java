@@ -13,7 +13,7 @@ import java.util.List;
 // REMEMBER: CONTROLLER CONNECT WITH SERVICE LAYER
 
 @RestController // json file
-@RequestMapping("api/v1/clients")
+@RequestMapping("api/v1/users")
 @CrossOrigin("*")
 public class ClientController {
     @Autowired // spring injection
