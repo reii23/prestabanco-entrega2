@@ -1,11 +1,9 @@
 package com.prestabanco.msrequest.services;
 
-import com.prestabanco.msrequest.entities.ClientEntity;
+import com.prestabanco.msrequest.clients.UsersFeignClient;
 import com.prestabanco.msrequest.entities.CreditRequestEntity;
-import com.prestabanco.msrequest.repositories.ClientRepository;
 import com.prestabanco.msrequest.repositories.CreditRequestRepository;
-import com.prestabanco.msrequest.repositories.CreditSimulationRepository;
-import com.prestabanco.msrequest.repositories.LoanTypeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,13 +16,9 @@ import java.util.Optional;
 @Service
 public class CreditRequestService {
     @Autowired
-    CreditRequestRepository creditRequestRepository;
+    private UsersFeignClient usersFeignClient;
     @Autowired
-    CreditSimulationRepository creditSimulationRepository;
-    @Autowired
-    LoanTypeRepository loanTypeRepository;
-    @Autowired
-    private ClientRepository clientRepository;
+    private CreditRequestRepository creditRequestRepository;
 
     // get all credit requests
     public ArrayList<CreditRequestEntity> getAllRequests() {
@@ -112,4 +106,4 @@ public class CreditRequestService {
             return false;
         }
     }
-
+}
