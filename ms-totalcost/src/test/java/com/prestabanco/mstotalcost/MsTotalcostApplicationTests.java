@@ -1,4 +1,4 @@
-package com.prestabanco.ms_totalcost;
+package com.prestabanco.mstotalcost;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

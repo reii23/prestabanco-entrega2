@@ -1,4 +1,4 @@
-package com.prestabanco.ms_tracking;
+package com.prestabanco.mstracking;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
