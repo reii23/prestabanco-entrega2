@@ -1,8 +1,0 @@
-- Eureka Server: http://localhost:8761/
-- Gateway Server: http://localhost:8080/
-- ms-simulation: http://localhost:8090/
-- ms-users: http://localhost:8091/
-- ms-request: http://localhost:8092/
-- ms-evaluation: http://localhost:8093/
-- ms-tracking: http://localhost:8094/
-- ms-totalcost: http://localhost:8095/

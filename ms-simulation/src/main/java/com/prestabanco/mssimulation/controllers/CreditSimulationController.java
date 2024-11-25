@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/CreditSimulation") // url CreditSimulationController
-@CrossOrigin("*")
+@RequestMapping("/api/v1/simulation") // url CreditSimulationController
 public class CreditSimulationController {
     @Autowired
     CreditSimulationService creditSimulationService;

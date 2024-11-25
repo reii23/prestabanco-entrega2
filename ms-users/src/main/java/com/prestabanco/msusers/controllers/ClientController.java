@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController // json file
 @RequestMapping("api/v1/users")
-@CrossOrigin("*")
 public class ClientController {
     @Autowired // spring injection
     ClientService clientService;

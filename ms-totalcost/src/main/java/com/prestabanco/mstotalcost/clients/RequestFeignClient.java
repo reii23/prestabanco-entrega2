@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(value = "ms-request", path = "/api/v1/CreditRequest", configuration = {FeignClientConfig.class})
+@FeignClient(value = "ms-request", path = "/api/v1/request", configuration = {FeignClientConfig.class})
 public interface RequestFeignClient {
 
     // get all credit request
