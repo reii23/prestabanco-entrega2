@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-simulation-deployment
+  labels:
+    app: ms-simulation-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-simulation-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-simulation-deployment
+    spec:
+      containers:
+        - name: ms-simulation
+          image: reii23/ms-simulation
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SERVER_PORT
+              value: "0"

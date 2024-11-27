@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config-map
+  labels:
+    app: postgres-config
+data:
+  # ms-evaluation-db
+  DB_HOST_EVALUATION: ms-evaluation-db-service
+  DB_PORT_EVALUATION: "5432"
+  DB_NAME_EVALUATION: ms-evaluation-db
+
+  # ms-request-db
+  DB_HOST_REQUEST: ms-request-db-service
+  DB_PORT_REQUEST: "5432"
+  DB_NAME_REQUEST: ms-request-db
+
+  # ms-simulation-db
+  DB_HOST_SIMULATION: ms-simulation-db-service
+  DB_PORT_SIMULATION: "5432"
+  DB_NAME_SIMULATION: ms-simulation-db
+
+  # ms-totalcost-db
+  DB_HOST_TOTALCOST: ms-totalcost-db-service
+  DB_PORT_TOTALCOST: "5432"
+  DB_NAME_TOTALCOST: ms-totalcost-db
+
+  # ms-tracking-db
+  DB_HOST_TRACKING: ms-tracking-db-service
+  DB_PORT_TRACKING: "5432"
+  DB_NAME_TRACKING: ms-tracking-db
+
+  # ms-users-db
+  DB_HOST_USERS: ms-users-db-service
+  DB_PORT_USERS: "5432"
+  DB_NAME_USERS: ms-users-db

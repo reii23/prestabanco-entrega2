@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-totalcost-deployment
+  labels:
+    app: ms-totalcost-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-totalcost-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-totalcost-deployment
+    spec:
+      containers:
+        - name: ms-totalcost
+          image: reii23/ms-totalcost
+          ports:
+            - containerPort: 8095
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_HOST_TOTALCOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_PORT_TOTALCOST
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_NAME_TOTALCOST
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_PASSWORD
