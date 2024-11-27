@@ -22,3 +22,7 @@ spec:
           env:
             - name: SERVER_PORT
               value: "0"
+            - name: DB_USERNAME
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "230902"

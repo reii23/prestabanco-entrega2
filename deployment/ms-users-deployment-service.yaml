@@ -21,7 +21,7 @@ spec:
             - containerPort: 8091
           env:
             - name: SERVER_PORT
-              value: "0"
+              value: "8091"
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
@@ -37,7 +37,7 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: DB_NAME_USERS
-            - name: DB_USER
+            - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: postgres-secret
@@ -47,3 +47,18 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: DB_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-users-service
+  labels:
+    app: ms-users-deployment
+spec:
+  selector:
+    app: ms-users-deployment
+  ports:
+    - protocol: TCP
+      port: 8091
+      targetPort: 8091
+  type: ClusterIP
