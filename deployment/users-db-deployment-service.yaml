@@ -12,6 +12,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/data/users-db-data"
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -27,6 +28,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -65,12 +67,13 @@ spec:
                   name: postgres-secret
                   key: DB_PASSWORD
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: users-db-data
+            - name: users-db-storage
+              mountPath: /var/lib/postgresql/data
       volumes:
-        - name: users-db-data
+        - name: users-db-storage
           persistentVolumeClaim:
             claimName: users-db-pvc
+
 ---
 apiVersion: v1
 kind: Service

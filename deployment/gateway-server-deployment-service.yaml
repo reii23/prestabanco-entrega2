@@ -15,7 +15,7 @@ spec:
         app: gateway-server-deployment
     spec:
       containers:
-        - name: gateway-server
+        - name: config-server
           image: reii23/gateway-server
           ports:
             - containerPort: 8080
