@@ -12,7 +12,7 @@ public class CreditSimulationController {
     @Autowired
     private CreditSimulationService creditSimulationService;
 
-    @GetMapping("/calculate")
+    @PostMapping("/")
     public ResponseEntity<Double> calculateMonthlyFee(
             @RequestParam double loanAmount,
             @RequestParam double interestRate,
