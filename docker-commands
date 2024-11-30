@@ -1,0 +1,2 @@
+- docker build -t reii23/ms-simulation .
+- docker push reii23/ms-simulation
