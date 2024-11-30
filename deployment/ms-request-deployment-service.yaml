@@ -34,7 +34,7 @@ spec:
                   key: DB_PORT_REQUEST
             - name: DB_NAME
               valueFrom:
-                secretKeyRef:
+                configMapKeyRef:
                   name: postgres-config-map
                   key: DB_NAME_REQUEST
             - name: DB_USER
