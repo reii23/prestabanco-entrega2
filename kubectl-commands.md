@@ -1,21 +1,21 @@
 comandos para kubernetes
 
-DELETE:
+DELETE (eliminar):
 - kubectl delete deployments --all
 - kubectl delete services --all
-- kubectl delete configmap postgres-configmap
+- kubectl delete configmap postgres-config-map
 - kubectl delete secrets --all
 - kubectl delete pv --all
 - kubectl delete db-request-ms-request-deployment-service
 - kubectl delete db-users-ms-request-deployment-service
 
-GET:
+GET (obtener estados):
 - kubectl get pods
 - kubectl get pv
 - kubectl get pvc
 - kubectl get configmap
 
-APPLY:
+APPLY (subir los yaml):
 - kubectl apply -f postgres-config-map.yaml
 - kubectl apply -f postgres-secrets.yaml
 - kubectl apply -f request-db-deployment-service.yaml
@@ -30,8 +30,8 @@ APPLY:
 - kubectl apply -f ms-tracking-deployment-service.yaml
 - kubectl apply -f ms-totalcost-deployment-service.yaml
 
-DATABASE:
-- kubectl exec -it ----------------------- --/bin/bash
+DATABASE (si quiero agregar alguna base de datos):
+- kubectl exec -it (name-pod) --/bin/bash
 - \l 
-- create database ""
+- create database "(name-database)"
 
