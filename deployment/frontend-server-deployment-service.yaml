@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prestabanco-frontend-deployment
+  labels:
+    app: prestabanco-frontend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: prestabanco-frontend-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prestabanco-frontend-deployment
+    spec:
+      containers:
+        - name: prestabanco-frontend-container
+          image: reii23/prestabanco-frontend
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prestabanco-frontend-service
+  labels:
+    app: prestabanco-frontend
+spec:
+  selector:
+    app: prestabanco-frontend-deployment
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
