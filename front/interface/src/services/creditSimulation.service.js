@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://191.238.214.157:80/api/CreditSimulation/";
+const API_URL = "http://172.23.4.59:30852/api/CreditSimulation/";
 
 const simulateCredit = (creditSimulation) => {
     return axios.post(API_URL, creditSimulation);

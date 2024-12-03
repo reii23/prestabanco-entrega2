@@ -16,6 +16,7 @@ GET (obtener estados):
 - kubectl get configmap
 
 APPLY (subir los yaml):
+en deployment:
 - kubectl apply -f postgres-config-map.yaml
 - kubectl apply -f postgres-secrets.yaml
 - kubectl apply -f request-db-deployment-service.yaml
@@ -29,6 +30,7 @@ APPLY (subir los yaml):
 - kubectl apply -f ms-evaluation-deployment-service.yaml
 - kubectl apply -f ms-tracking-deployment-service.yaml
 - kubectl apply -f ms-totalcost-deployment-service.yaml
+- kubectl apply -f frontend-server-deployment-service.yaml
 
 DATABASE (si quiero agregar alguna base de datos):
 - kubectl exec -it (name-pod) --/bin/bash
