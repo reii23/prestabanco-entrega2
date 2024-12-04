@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://172.23.4.59:30852/api/v1/LoanType/";
+const API_URL = "http://172.23.4.59:31613/api/v1/LoanType/";
 
 // obtain all loan types (first dwelling, second dwelling, etc)
 const getAllLoanTypes = () => {
