@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = "http://172.23.4.59:32216/api/v1/request/";
 const LOAN_COST_API_URL = "http://172.23.4.59:32216/api/v1/totalcost/";
+const TRACKING_API_URL = "http://172.23.4.59:32216/api/v1/tracking/";
 
 // get a client by rut to check if it exists
 const getClientByRut = (rut) => {
@@ -20,7 +21,7 @@ const createCreditRequest = (formData) => {
 
 // get the status of a credit request by its id
 const getCreditRequestStatus = (id) => {
-    return axios.get(`${API_URL}${id}/status`);
+    return axios.get(`${TRACKING_API_URL}${id}/status`); // Usando la nueva constante
 };
 
 // calculate the cost of a loan based on the credit request id
