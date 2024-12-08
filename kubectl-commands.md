@@ -33,7 +33,7 @@ en deployment:
 - kubectl apply -f frontend-server-deployment-service.yaml
 
 DATABASE (si quiero agregar alguna base de datos):
-- kubectl exec -it (name-pod) --/bin/bash
+- kubectl exec -it (name-pod) -- /bin/bash
 - \l 
-- create database "(name-database)"
+- CREATE database "(name-database)"
 
