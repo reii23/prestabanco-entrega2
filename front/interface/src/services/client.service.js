@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://172.23.4.59:30474/api/v1/users/";
+const API_URL = "http://172.23.4.59:30408/api/v1/users/";
 
 // obtain all clients
 const getAllClients = () => {
