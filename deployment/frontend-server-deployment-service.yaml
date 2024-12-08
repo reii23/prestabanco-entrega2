@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prestabanco-frontend-container
-          image: reii23/prestabanco-frontend
+          image: reii23/prestabanco-frontend:latest
           ports:
             - containerPort: 3000
 
