@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = "http://172.23.4.59:32300/api/v1/request/";
-const EVALUATION_API_URL = "http://172.23.4.59:32300/api/v1/evaluation/";
+const API_URL = "http://172.23.4.59:30626/api/v1/request/";
+const EVALUATION_API_URL = "http://172.23.4.59:30626/api/v1/evaluation/";
 
 // obtain all loans from the API
 const getAllLoans = () => {
