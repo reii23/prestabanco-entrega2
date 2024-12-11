@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_URL = "http://172.23.4.59:32300/api/v1/request/";
+const EVALUATION_API_URL = "http://172.23.4.59:32300/api/v1/evaluation/";
 
 // obtain all loans from the API
 const getAllLoans = () => {
@@ -14,7 +15,7 @@ const getLoanById = (id) => {
 
 // evaluate a loan request by id
 const evaluateLoan = (id, evaluationData) => {
-  return axios.post(`${API_URL}evaluate/${id}`, evaluationData);
+  return axios.post(`${EVALUATION_API_URL}evaluate/${id}`, evaluationData);
 };
 
 // delete a loan request by id
