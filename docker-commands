@@ -1,3 +1,4 @@
 Upload to docker
+- npm run build
 - docker build -t reii23/(ms-name) .
 - docker push reii23/(ms-name)

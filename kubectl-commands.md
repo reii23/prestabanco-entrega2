@@ -37,8 +37,3 @@ DATABASE (si quiero agregar alguna base de datos):
 - psql -U postgres
 - \l 
 - CREATE DATABASE "(name-database)"
-
-Consideraciones:
-- Al momento de subir los pods: se debe crear una base de datos en ms-request llamada "request-db" y en ms-users una base de datos llamada "users-db"
-- En request-db se debe completar los datos de los tipos de préstamos lona_type con los datos de querys.sql
-- Se deben actualizar las rutas en el frontend dependiendo los puertos generados y en el evaluate para obtener los pdf
