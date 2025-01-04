@@ -7,7 +7,7 @@
    - Crear una base de datos en `ms-users` llamada **`users-db`**.
 
 2. **Carga Inicial de Datos:**
-   - En `request-db`, completar los datos de los tipos de préstamos `lona_type` con los datos del archivo **`querys.sql`**.
+   - En `request-db`, completar los datos de los tipos de préstamos `loan_type` con los datos del archivo **`querys.sql`**.
 
 3. **Configuración del Frontend:**
    - Actualizar las rutas en el frontend en función de los puertos generados.
