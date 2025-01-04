@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const API_URL = "http://172.31.116.160:30626/api/v1/request/";
-const LOAN_COST_API_URL = "http://172.31.116.160:30626/api/v1/totalcost/";
-const TRACKING_API_URL = "http://172.31.116.160:30626/api/v1/tracking/";
+const API_URL = "http://172.31.115.31:31748/api/v1/request/";
+const LOAN_COST_API_URL = "http://172.31.115.31:31748/api/v1/totalcost/";
+const TRACKING_API_URL = "http://172.31.115.31:31748/api/v1/tracking/";
 
 // get a client by rut to check if it exists
 const getClientByRut = (rut) => {
-    return axios.get(`http://172.31.116.160:30626/api/v1/users/rut/${rut}`);
+    return axios.get(`http://172.31.115.31:31748/api/v1/users/rut/${rut}`);
 };
 
 // send a credit request to the API (content is multipart/form-data because it includes a files in PDF format)
