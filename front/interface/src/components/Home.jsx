@@ -26,7 +26,7 @@ const Home = () => {
   const features = [
     {
       title: "Simulación de Crédito",
-      description: "Calcule diferentes escenarios de préstamos hipotecarios",
+      description: "Simule su crédito hipotecario o de negocio",
       icon: <BarChart sx={{ fontSize: 40, color: '#22c55e' }} />,
       path: "/credit-simulation"
     },
@@ -38,25 +38,25 @@ const Home = () => {
     },
     {
       title: "Solicitudes de Crédito",
-      description: "Gestione las solicitudes de préstamos hipotecarios",
+      description: "Gestione y agrega solicitudes de crédito",
       icon: <AccountBalance sx={{ fontSize: 40, color: '#22c55e' }} />,
       path: "/loans"
     },
     {
+        title: "Evaluación de Créditos",
+        description: "Evalue solicitudes de crédito",
+        icon: <Assessment sx={{ fontSize: 40, color: '#22c55e' }} />,
+        path: "/loans"
+    },  
+    {
       title: "Seguimiento de Estado",
-      description: "Monitoree el estado de las solicitudes",
+      description: "Monitoree el estado de una solicitud",
       icon: <Search sx={{ fontSize: 40, color: '#22c55e' }} />,
       path: "/creditstatus"
     },
     {
-      title: "Evaluación de Créditos",
-      description: "Evalúe y apruebe solicitudes de crédito",
-      icon: <Assessment sx={{ fontSize: 40, color: '#22c55e' }} />,
-      path: "/loans"
-    },
-    {
       title: "Costos Totales",
-      description: "Analice los costos totales del crédito",
+      description: "Calcula los costos totales del crédito",
       icon: <Payments sx={{ fontSize: 40, color: '#22c55e' }} />,
       path: "/loan-cost"
     }
