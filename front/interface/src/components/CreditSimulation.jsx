@@ -146,7 +146,7 @@ const CreditSimulation = () => {
         {activeStep === 0 && (
           <form onSubmit={handleSimulate}>
             <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'bold' }}>
-              Monto del préstamo
+              Ingrese el monto a solicitar:
             </Typography>
             <TextField
               placeholder="Ej: 100.000.000"
@@ -175,7 +175,7 @@ const CreditSimulation = () => {
             />
 
             <Typography variant="subtitle1" sx={{ mt: 2, mb: 1, fontWeight: 'bold' }}>
-              Plazo en años
+              Ingrese el plazo en años:
             </Typography>
             <TextField
               placeholder="Ej: 20"
@@ -204,7 +204,7 @@ const CreditSimulation = () => {
             />
 
             <Typography variant="subtitle1" sx={{ mt: 2, mb: 1, fontWeight: 'bold' }}>
-              Tasa de interés (%)
+              Ingrese la tasa de interés (%):
             </Typography>
             <TextField
               placeholder="Ej: 4.5"
