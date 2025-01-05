@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://172.31.115.31:31748/api/v1/simulation/";
+const API_URL = "http://172.31.118.216:30771/api/v1/simulation/";
 
 const simulateCredit = async (creditSimulation) => {
   try {

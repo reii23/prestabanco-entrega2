@@ -152,7 +152,7 @@ const EvaluateCreditRequest = () => {
   const handleViewDocument = async (documentType) => {
     try {
       const response = await axios.get(
-        `http://172.31.115.31:31748/api/v1/request/${id}/${documentType}`,
+        `http://172.31.118.216:30771/api/v1/request/${id}/${documentType}`,
         { responseType: 'blob' }
       );
 
