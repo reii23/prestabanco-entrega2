@@ -32,17 +32,18 @@ h1 {
   background-color: #f97807; 
 }
 
-.MuiButton-containedPrimary {
-  background-color: #f97807 !important; /* background color*/
-  color: #ffffff !important;            /* text color*/
+
+.MuiToolbar-root .MuiButton-containedPrimary {
+  background-color: #f97807 !important;
+  color: #ffffff !important;           
   border-radius: 8px;                   
   padding: 0.6em 1.2em;                 
   font-weight: 500;                     
   transition: background-color 0.25s, color 0.25s;
 }
 
-.MuiButton-containedPrimary:hover {
-  background-color: #ea6f04 !important; /* hover background */
+.MuiToolbar-root .MuiButton-containedPrimary:hover {
+  background-color: #ea6f04 !important;
 }
 
 
