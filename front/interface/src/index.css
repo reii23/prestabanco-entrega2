@@ -29,7 +29,7 @@ h1 {
 }
 
 .MuiToolbar-root {
-  background-color: #f97807; 
+  background-color: #16285a; 
 }
 
 
@@ -45,7 +45,6 @@ h1 {
 .MuiToolbar-root .MuiButton-containedPrimary:hover {
   background-color: #ea6f04 !important;
 }
-
 
 html, body {
   height: 100%;

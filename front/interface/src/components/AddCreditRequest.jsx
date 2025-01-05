@@ -320,7 +320,7 @@ const AddCreditRequest = () => {
         <Box sx={{ width: '100%', maxWidth: 800, mx: 'auto', p: 3 }}>
             <Paper elevation={3} sx={{ p: 3, backgroundColor: 'white' }}>
                 <Typography variant="h5" align="center" gutterBottom sx={{ color: '#22c55e', fontWeight: 'bold' }}>
-                    Solicitud de Crédito Hipotecario
+                    Solicitud de Crédito
                 </Typography>
 
                 <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
