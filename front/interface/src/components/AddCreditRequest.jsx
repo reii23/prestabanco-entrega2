@@ -135,6 +135,27 @@ const AddCreditRequest = () => {
         return dv === calculatedDV;
     };
 
+    const validateCreditData = () => {
+        const errors = {};
+        if (!creditData.expenses || parseFloat(creditData.expenses) <= 0) {
+            errors.expenses = "Los gastos deben ser mayores a 0";
+        }
+        if (!creditData.requestedAmount || parseFloat(creditData.requestedAmount) <= 0) {
+            errors.requestedAmount = "El monto solicitado debe ser mayor a 0";
+        }
+        if (!creditData.termYears || parseFloat(creditData.termYears) <= 0 || parseFloat(creditData.termYears) > 30) {
+            errors.termYears = "El plazo debe estar entre 1 y 30 años";
+        }
+        if (!creditData.interestRate || parseFloat(creditData.interestRate) <= 0 || parseFloat(creditData.interestRate) > 100) {
+            errors.interestRate = "La tasa debe estar entre 0.1% y 100%";
+        }
+        if (!creditData.loanTypeId) {
+            errors.loanTypeId = "Debe seleccionar un tipo de préstamo";
+        }
+        setValidationErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+    
     const handleRutChange = (e) => {
         const formattedRut = formatRut(e.target.value);
         setRut(formattedRut);
