@@ -60,6 +60,30 @@ const AddCreditRequest = () => {
     const [validationErrors, setValidationErrors] = useState({});
     const [message, setMessage] = useState('');
 
+    const cleanRut = (rut) => {
+        return rut.replace(/[^0-9kK]/g, '')
+            .toLowerCase()
+            .substring(0, 9);
+    };
+
+    const formatRut = (rut) => {
+        const cleaned = cleanRut(rut);
+
+        if (!cleaned) return '';
+
+        let result = '';
+        const dv = cleaned.slice(-1);
+        const numbers = cleaned.slice(0, -1);
+
+        for (let i = numbers.length; i > 0; i -= 3) {
+            const start = Math.max(0, i - 3);
+            result = '.' + numbers.substring(start, i) + result;
+        }
+
+        result = result.slice(1);
+        return result ? `${result}-${dv}` : dv;
+    };
+
     // Estados para los archivos PDF
     const [incomeProofPdf, setIncomeProofPdf] = useState(null);
     const [propertyValuationPdf, setPropertyValuationPdf] = useState(null);
@@ -87,28 +111,33 @@ const AddCreditRequest = () => {
 
     // TO DO: Validar rut
     const validateRut = (rut) => {
-        return rut.length > 0;
+        const cleaned = cleanRut(rut);
+
+        if (cleaned.length < 2) return false;
+
+        const body = cleaned.slice(0, -1);
+        const dv = cleaned.slice(-1);
+
+        if (!/^\d+$/.test(body)) return false;
+        if (!/^[0-9k]$/.test(dv)) return false;
+
+        let sum = 0;
+        let multiplier = 2;
+
+        for (let i = body.length - 1; i >= 0; i--) {
+            sum += parseInt(body[i]) * multiplier;
+            multiplier = multiplier === 7 ? 2 : multiplier + 1;
+        }
+
+        const expectedDV = 11 - (sum % 11);
+        const calculatedDV = expectedDV === 11 ? '0' : expectedDV === 10 ? 'k' : expectedDV.toString();
+
+        return dv === calculatedDV;
     };
 
-    const validateCreditData = () => {
-        const errors = {};
-        if (parseFloat(creditData.expenses) <= 0) {
-            errors.expenses = "Los gastos deben ser mayores a 0";
-        }
-        if (parseFloat(creditData.requestedAmount) <= 0) {
-            errors.requestedAmount = "El monto solicitado debe ser mayor a 0";
-        }
-        if (parseFloat(creditData.termYears) <= 0 || parseFloat(creditData.termYears) > 30) {
-            errors.termYears = "El plazo debe estar entre 1 y 30 años";
-        }
-        if (parseFloat(creditData.interestRate) <= 0 || parseFloat(creditData.interestRate) > 100) {
-            errors.interestRate = "La tasa debe estar entre 0.1% y 100%";
-        }
-        if (!creditData.loanTypeId) {
-            errors.loanTypeId = "Debe seleccionar un tipo de préstamo";
-        }
-        setValidationErrors(errors);
-        return Object.keys(errors).length === 0;
+    const handleRutChange = (e) => {
+        const formattedRut = formatRut(e.target.value);
+        setRut(formattedRut);
     };
 
     const handleRutSubmit = async (e) => {
@@ -131,10 +160,10 @@ const AddCreditRequest = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-    
+
         if (name === 'loanTypeId') {
             const selectedLoanType = loanTypes.find(loan => loan.id === parseInt(value));
-            
+
             // reset the files when changing the loan type (to avoid sending the wrong files)
             setIncomeProofPdf(null);
             setPropertyValuationPdf(null);
@@ -355,11 +384,17 @@ const AddCreditRequest = () => {
                         <form onSubmit={handleRutSubmit}>
                             <TextField
                                 label="RUT"
-                                placeholder="Ej: 99.999.999"
+                                placeholder="Ej: 12.345.678-9"
                                 value={rut}
-                                onChange={(e) => setRut(e.target.value)}
+                                onChange={handleRutChange}
                                 fullWidth
                                 margin="normal"
+                                error={rut.length > 0 && !validateRut(rut)}
+                                helperText={
+                                    rut.length > 0 && !validateRut(rut)
+                                        ? "RUT inválido"
+                                        : "Formato: 12.345.678-9"
+                                }
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
@@ -372,7 +407,15 @@ const AddCreditRequest = () => {
                                 type="submit"
                                 variant="contained"
                                 fullWidth
-                                sx={{ ...buttonStyles.green, mt: 2 }}
+                                disabled={!validateRut(rut)}
+                                sx={{
+                                    ...buttonStyles.green,
+                                    mt: 2,
+                                    '&:disabled': {
+                                        backgroundColor: '#d1d5db',
+                                        color: '#9ca3af'
+                                    }
+                                }}
                             >
                                 Continuar
                             </Button>
